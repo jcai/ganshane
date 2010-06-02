@@ -10,4 +10,30 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Ganshane Web Site</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>corner</groupId>
+  		<artifactId>corner</artifactId>
+  		<version>3.1-SNAPSHOT</version>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>ganshane</groupId>
+  		<artifactId>theme</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>ganshane</groupId>
+  		<artifactId>node</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>ganshane</groupId>
+  		<artifactId>user</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<scope>compile</scope>
+  	</dependency>
+  </dependencies>
 </project>

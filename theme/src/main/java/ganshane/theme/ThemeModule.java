@@ -15,6 +15,19 @@
  */
 package ganshane.theme;
 
+import ganshane.theme.services.impl.ThemePageResponseRendererImpl;
+
+import org.apache.tapestry5.MarkupWriter;
+import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.internal.services.PageResponseRenderer;
+import org.apache.tapestry5.ioc.MappedConfiguration;
+import org.apache.tapestry5.ioc.ObjectLocator;
+import org.apache.tapestry5.ioc.OrderedConfiguration;
+import org.apache.tapestry5.ioc.annotations.Local;
+import org.apache.tapestry5.ioc.annotations.ServiceId;
+import org.apache.tapestry5.services.MarkupRenderer;
+import org.apache.tapestry5.services.MarkupRendererFilter;
+
 /**
  * 样式模块，能够自定义样式
  * @author <a href="mailto:jun.tsai@gmail.com">Jun Tsai</a>
@@ -22,4 +35,34 @@ package ganshane.theme;
  * @since 0.1
  */
 public class ThemeModule {
+    public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration) {
+        configuration.add(SymbolConstants.SUPPRESS_REDIRECT_FROM_ACTION_REQUESTS, String.valueOf(Boolean.TRUE));
+    }
+    public void contributeMarkupRenderer(OrderedConfiguration<MarkupRendererFilter> configuration) {
+        configuration.add("layout", new MarkupRendererFilter() {
+
+            public void renderMarkup(MarkupWriter writer,
+                    MarkupRenderer renderer) {
+               writer.element("html");
+               
+               writer.element("head");
+               writer.end();
+               
+               writer.element("body");
+               
+               renderer.renderMarkup(writer);
+               
+               writer.end();
+               writer.end();
+            }},"before:DocumentLinker");
+        
+    }
+    @ServiceId("ThemePageResponseRenderer")
+    public PageResponseRenderer buildPageResponseRenderer(ObjectLocator locator) {
+        return locator.autobuild(ThemePageResponseRendererImpl.class);
+    }
+    public static void contributeServiceOverride(MappedConfiguration<Class<?>, Object> configuration,
+            @Local PageResponseRenderer pageResponseRenderer) {
+        configuration.add(PageResponseRenderer.class,pageResponseRenderer);
+    }
 }
