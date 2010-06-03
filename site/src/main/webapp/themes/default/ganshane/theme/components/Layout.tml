@@ -11,6 +11,51 @@
     </t:if>
 </head>
 <body>
-<t:body/>
+<table border="0" cellpadding="0" cellspacing="0" id="header">
+  <tr>
+    <td id="logo">
+    	<a href="/" title="首页">首页</a>
+    	<h1>
+    	<a href="/" title="首页" class="site-name">首页</a>
+    	</h1>
+    	<div class="site-slogan">万岁</div>
+    </td>
+    <td id="menu">
+      <div id="secondary"><ul><li><a href="#">首页面</a></li><li><a href="#">论坛</a></li></ul></div>
+      <div id="primary"><ul><li><a href="#">test</a></li></ul></div>
+      search_box
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><div> $header</div></td>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" id="content">
+  <tr>
+    <td id="sidebar-left">
+       $sidebar_left
+    </td>
+    <td valign="top">
+      <div id="mission"><?php print $mission ?></div>
+      <div id="main">
+       <div class="breadcrumb"><ul class="menu"><li>所在位置：</li><li><a href="#">首页</a></li></ul></div>
+        <h1 class="title">会员注册</h1>
+        <div class="tabs">$tabs</div>
+         $help
+        $messages
+		<t:body/>
+      </div>
+    </td>
+    <td id="sidebar-right">
+      $sidebar_right
+    </td>
+  </tr>
+</table>
+
+<div id="footer">
+   $footer_message
+</div>
+ $closure
 </body>
 </html>

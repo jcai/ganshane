@@ -17,6 +17,7 @@ package ganshane.theme.components;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 
@@ -26,6 +27,7 @@ import org.apache.tapestry5.annotations.Property;
  * @version $Revision$
  * @since 0.1
  */
+@Import(stylesheet= {"context:themes/default/style.css"})
 public class Layout {
     @SuppressWarnings("unused")
     @Property

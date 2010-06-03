@@ -1,4 +1,4 @@
 <t:theme.layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
-	xmlns:p="tapestry:parameter">
+	xmlns:p="tapestry:parameter" >
 	<div>java中文hehehe </div>
 </t:theme.layout>
