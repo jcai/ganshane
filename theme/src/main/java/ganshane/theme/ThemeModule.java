@@ -22,7 +22,6 @@ import ganshane.theme.services.impl.ThemeTemplateSourceImpl;
 
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.internal.services.ComponentTemplateSource;
-import org.apache.tapestry5.internal.services.PageResponseRenderer;
 import org.apache.tapestry5.internal.services.TemplateParser;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
@@ -72,7 +71,6 @@ public class ThemeModule {
             }
 
     public static void contributeServiceOverride(MappedConfiguration<Class<?>, Object> configuration,
-            @Local PageResponseRenderer pageResponseRenderer ,
             @Local ComponentTemplateSource componentTemplateSource) {
         configuration.add(ComponentTemplateSource.class,componentTemplateSource);
     }
