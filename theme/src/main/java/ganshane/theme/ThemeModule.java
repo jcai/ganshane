@@ -56,7 +56,7 @@ public class ThemeModule {
             AssetFactory contextAssetFactory, ComponentClassResolver componentClassResolver)
     {
         configuration
-                .add("Theme", new ThemePageTemplateLocator(contextAssetFactory.getRootResource(), componentClassResolver),
+                .add("Theme", new ThemePageTemplateLocator(contextAssetFactory.getRootResource()),
                         "before:Default");
     }
     @ServiceId("ThemeComponentTemplateSource")

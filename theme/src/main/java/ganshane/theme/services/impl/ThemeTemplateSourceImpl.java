@@ -205,9 +205,9 @@ public class ThemeTemplateSourceImpl extends InvalidationEventHubImpl implements
     }
 
     /**
-     * @see ganshane.theme.services.ReloadTemplateListener#reloadTemplate()
+     * @see ganshane.theme.services.ReloadTemplateListener#reloadTemplates()
      */
-    public void reloadTemplate() {
+    public void reloadTemplates() {
             tracker.clear();
             templateResources.clear();
             templates.clear();

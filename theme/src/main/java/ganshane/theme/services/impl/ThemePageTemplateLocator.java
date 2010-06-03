@@ -21,9 +21,7 @@ import java.util.Locale;
 
 import org.apache.tapestry5.TapestryConstants;
 import org.apache.tapestry5.ioc.Resource;
-import org.apache.tapestry5.ioc.internal.util.InternalUtils;
 import org.apache.tapestry5.model.ComponentModel;
-import org.apache.tapestry5.services.ComponentClassResolver;
 import org.apache.tapestry5.services.templates.ComponentTemplateLocator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,13 +38,23 @@ public class ThemePageTemplateLocator implements ComponentTemplateLocator {
 
     private Logger logger = LoggerFactory.getLogger(ThemePageTemplateLocator.class);
 
-    public ThemePageTemplateLocator(Resource contextRoot, ComponentClassResolver resolver)
+    public ThemePageTemplateLocator(Resource contextRoot)
     {
         this.contextRoot = contextRoot;
     }
 
     public Resource locateTemplate(ComponentModel model, Locale locale)
     {
+        String path = convertAsTemplatePath(model);
+
+        Resource file = contextRoot.forFile(path);
+        if(file.exists())  {
+           return file.forLocale(locale); 
+        }
+        return null;
+    }
+
+    String convertAsTemplatePath(ComponentModel model) {
         String className = model.getComponentClassName();
 
         // A bit of a hack, but should work.
@@ -56,29 +64,10 @@ public class ThemePageTemplateLocator implements ComponentTemplateLocator {
             return null;
         }
 
-
-        int slashx = logicalName.lastIndexOf('/');
-
-        if (slashx > 0)
-        {
-            // However, the logical name isn't quite what we want. It may have been somewhat
-            // trimmed.
-
-            String simpleClassName = InternalUtils.lastTerm(className);
-
-            logicalName = logicalName.substring(0, slashx + 1) + simpleClassName;
-        }
-
         String path = format("%s%s.%s","themes/default/",logicalName, TapestryConstants.TEMPLATE_EXTENSION);
         
-        
         logger.debug("page theme path:{}",path);
-
-        Resource file = contextRoot.forFile(path);
-        if(file.exists())  {
-           return file.forLocale(locale); 
-        }
-        return null;
+        return path;
     }
 
 }

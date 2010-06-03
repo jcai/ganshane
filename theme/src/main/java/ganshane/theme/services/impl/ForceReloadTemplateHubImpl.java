@@ -59,7 +59,7 @@ public class ForceReloadTemplateHubImpl implements ForceReloadTemplateHub{
             if (listener == null)
                 deadReferences.add(reference);
             else
-                listener.reloadTemplate();
+                listener.reloadTemplates();
         }
 
         if (!deadReferences.isEmpty())

@@ -27,5 +27,5 @@ public interface ReloadTemplateListener {
      * 重新加载模板。
      * @since 0.1
      */
-    public void reloadTemplate();
+    public void reloadTemplates();
 }

@@ -15,26 +15,24 @@
  */
 package ganshane.theme.services.impl;
 
-import ganshane.theme.services.ReloadTemplateListener;
-
+import org.apache.tapestry5.model.ComponentModel;
 import org.apache.tapestry5.test.TapestryTestCase;
 import org.testng.annotations.Test;
 
 /**
- * 
+ * test theme page template locator
  * @author <a href="mailto:jun.tsai@gmail.com">Jun Tsai</a>
  * @version $Revision$
  * @since 0.1
  */
-public class ForceReloadTemplateHubImplTest extends TapestryTestCase{
+public class ThemePageTemplateLocatorTest extends TapestryTestCase{
     @Test
-    public void test_fire() {
-        ForceReloadTemplateHubImpl hub = new ForceReloadTemplateHubImpl();
-        ReloadTemplateListener listener = newMock(ReloadTemplateListener.class);
-        listener.reloadTemplates();
-        hub.addReloadListener(listener);
+    public void test_convertAsTemplatePath() {
+        ThemePageTemplateLocator locator = new ThemePageTemplateLocator(null);
+        ComponentModel model = newMock(ComponentModel.class);
+        expect(model.getComponentClassName()).andReturn("foo.bar.TestPage");
         replay();
-        hub.fireReloadTemplateEvent();
+        assertEquals(locator.convertAsTemplatePath(model),"themes/default/foo/bar/TestPage.tml");
         verify();
     }
 }
