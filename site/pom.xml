@@ -12,12 +12,6 @@
   <name>Ganshane Web Site</name>
   <dependencies>
   	<dependency>
-  		<groupId>corner</groupId>
-  		<artifactId>corner</artifactId>
-  		<version>3.1-SNAPSHOT</version>
-  		<scope>compile</scope>
-  	</dependency>
-  	<dependency>
   		<groupId>ganshane</groupId>
   		<artifactId>theme</artifactId>
   		<version>0.0.1-SNAPSHOT</version>

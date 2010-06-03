@@ -13,18 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ganshane.theme.services;
+package ganshane.theme.pages;
 
-import ganshane.theme.models.ThemeType;
+import ganshane.theme.services.ForceReloadTemplateHub;
 
-import java.io.PrintWriter;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.util.TextStreamResponse;
 
 /**
- * 风格服务类接口
+ * 清除页面缓存
  * @author <a href="mailto:jun.tsai@gmail.com">Jun Tsai</a>
  * @version $Revision$
  * @since 0.1
  */
-public interface ThemeService {
-    public String theme(ThemeType type);
+public class ClearPageCache {
+    @Inject
+    private ForceReloadTemplateHub hub;
+    Object onActivate() {
+        hub.fireReloadTemplateEvent();
+        return new TextStreamResponse("text/plain","ok");
+    }
 }
