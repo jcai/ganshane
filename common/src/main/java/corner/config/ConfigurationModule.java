@@ -28,6 +28,7 @@ import corner.config.services.impl.ConfigurationSourceImpl;
  * ServiceConfig的配置Module
  * 
  * @author dong
+ * @author <a href="mailto:jun.tsai@gmail.com">Jun Tsai</a>
  * @version $Revision$
  * @since 0.0.1
  */
