@@ -23,7 +23,7 @@ Find.find(dir)  do |file|
         begin_read=false
         if(!has_write_head)
          currentYear = Time.now.year
-        createdYear = date.year
+        createdYear = 2010
         
         copyYears=createdYear.to_s+"-"+currentYear.to_s
         copyYears=currentYear.to_s if currentYear == createdYear
@@ -48,8 +48,8 @@ Find.find(dir)  do |file|
          has_write_head=true
          end
          tmpFile<<line
+         }
       tmpFile.close
       File.rename(tmp_file_name,file)
-    }
   end
 end

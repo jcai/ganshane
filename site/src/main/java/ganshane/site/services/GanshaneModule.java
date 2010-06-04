@@ -14,13 +14,3 @@
  * limitations under the License.
  */
 package ganshane.site.services;
-
-/**
- * ganshane site module
- * @author <a href="mailto:jun.tsai@gmail.com">Jun Tsai</a>
- * @version $Revision$
- * @since 0.1
- */
-public class GanshaneModule {
-
-}
