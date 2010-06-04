@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	Copyright 2009 The Ganshane Network Service Team. 
+	site: http://ganshane.net
+	file : $Id$
+	created at:2009-12-03
+-->
+<config>
+	<e1>test e1 content</e1>
+	<e2>12345</e2>
+</config>
