@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-catalog="drupal" match-name="users" />
+	<table-filter match-catalog="drupal" match-name="role" />
+	<table-filter match-catalog="drupal" match-name="node" />
+	<table catalog="drupal" name="users" class="Users"></table>
+</hibernate-reverse-engineering>
